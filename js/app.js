@@ -22,37 +22,36 @@ progress.style.strokeDasharray  = pathLength + 'px';
 /**
  * ON INPUT
  */
-textarea.addEventListener('input', function( event ) {
+textarea.addEventListener('input', function() {
 
 	var len = textarea.value.length,
 		per = textarea.value.length / tweetLength;
-
-
-	function handleProgress( len, tweetLength, pathLength ){
-
+	
+	function updateProgress( len, tweetLength, pathLength, per ){
+		
 		if ( len <= tweetLength ) {
 			var newOffset = pathLength - (pathLength * per) + 'px';
 			progress.style.strokeDashoffset = newOffset;
 		};
-	};
+	}
 
+	function updateColors( len, warningZone, dangerZone, tweetLength ){
 		
-	function handleColors(len, warningZone, dangerZone, tweetLength ){
-
 		progress.classList.toggle('warn', len > warningZone && len < dangerZone);
 		progress.classList.toggle('danger', len >= dangerZone);
 		progress.classList.toggle('tragedy', len == tweetLength);
-	};
-
-	function handleCounter( len, tweetLength, counter){
-
+	}
+	
+	function updateCounter( len, tweetLength, counter ){
+	
 		counter.textContent = tweetLength - len;
 		counter.classList.toggle('danger', len >= tweetLength);
-	};
+	}
+
+	updateProgress( len, tweetLength, pathLength, per );
+	updateColors( len, warningZone, dangerZone, tweetLength );
+	updateCounter( len, tweetLength, counter );
+		
+	});
+
 	
-	handleProgress( len, tweetLength, pathLength );
-	handleColors( len, warningZone, dangerZone, tweetLength );
-	handleCounter( len, tweetLength, counter)
-
-});
-
