@@ -26,31 +26,10 @@ textarea.addEventListener('input', function() {
 
 	var len = textarea.value.length,
 		per = textarea.value.length / tweetLength;
-	
-	function updateProgress( len, tweetLength, pathLength, per ){
-		
-		if ( len <= tweetLength ) {
-			var newOffset = pathLength - (pathLength * per) + 'px';
-			progress.style.strokeDashoffset = newOffset;
-		};
-	}
 
-	function updateColors( len, warningZone, dangerZone, tweetLength ){
-		
-		progress.classList.toggle('warn', len > warningZone && len < dangerZone);
-		progress.classList.toggle('danger', len >= dangerZone);
-		progress.classList.toggle('tragedy', len == tweetLength);
-	}
-	
-	function updateCounter( len, tweetLength, counter ){
-	
-		counter.textContent = tweetLength - len;
-		counter.classList.toggle('danger', len >= tweetLength);
-	}
-
-	updateProgress( len, tweetLength, pathLength, per );
-	updateColors( len, warningZone, dangerZone, tweetLength );
-	updateCounter( len, tweetLength, counter );
+	Orb.updateProgress( len, tweetLength, pathLength, per );
+	Orb.updateColors( len, warningZone, dangerZone, tweetLength );
+	Orb.updateCounter( len, tweetLength, counter );
 		
 	});
 
