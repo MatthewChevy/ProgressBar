@@ -25,6 +25,7 @@ svg {
 
 .safe {
 	color: $color-safe;
+	
 }
 
 .warn {
@@ -38,4 +39,8 @@ svg {
 .tragedy {
 	stroke-width: $stroke-thicc;
 	animation: blink .4s ease-out;
+}
+
+.beyond{
+	background-color: $color-danger;
 }

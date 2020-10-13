@@ -44,9 +44,9 @@ textarea {
 
 svg {
   transform: rotate(-90deg); }
-  svg circle {
-    fill: none;
-    stroke-width: 1; }
+svg circle {
+  fill: none;
+  stroke-width: 1; }
 
 .underlay {
   stroke: #ccc; }
@@ -69,6 +69,9 @@ svg {
 .tragedy {
   stroke-width: 5;
   animation: blink .4s ease-out; }
+
+.beyond {
+  background-color: #e0245e; }
 
 @keyframes blink {
   0% {
