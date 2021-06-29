@@ -1,2 +1,2 @@
 # Orb
-Some exercise from lean2code
+Exercise from lean2code
